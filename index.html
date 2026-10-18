@@ -110,6 +110,7 @@ h1{font:700 clamp(3.1rem,14vw,6.3rem)/.93 var(--head);color:#fff;margin:0 0 18px
 .chip input:focus-visible+span{outline:2px solid var(--navy);outline-offset:2px}
 .chip:hover input:not(:checked)+span{border-color:var(--navy)}
 .bubble-label{margin:6px 0 6px;font-size:1rem;color:var(--soft-text)}
+.clear{font:inherit;color:var(--navy);background:none;border:0;border-bottom:1px solid var(--navy);padding:10px 0 1px;margin-left:8px;cursor:pointer;min-height:44px}
 .bubble{margin:0 0 14px;background:var(--navy);color:#fff;padding:12px 14px;border-radius:10px 10px 2px 10px;font-size:1rem;line-height:1.45}
 .composer .btn{width:100%;min-height:58px;font-size:1.15rem;font-weight:700}
 .note{margin:12px 0 0;font-size:1rem;color:var(--soft-text)}
@@ -284,7 +285,7 @@ h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:2
         <fieldset>
           <legend>¿Qué pasó?</legend>
           <div class="chips">
-            <label class="chip"><input type="radio" name="que" value="chocaron"><span>Me chocaron</span></label>
+            <label class="chip"><input type="radio" name="que" value="chocaron"><span>Tuve un choque</span></label>
             <label class="chip"><input type="radio" name="que" value="moto"><span>Iba en moto o bici</span></label>
             <label class="chip"><input type="radio" name="que" value="atropello"><span>Me atropellaron</span></label>
             <label class="chip"><input type="radio" name="que" value="sinseguro"><span>El otro no tenía seguro</span></label>
@@ -300,14 +301,16 @@ h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:2
           </div>
         </fieldset>
         <fieldset>
-          <legend>¿Avisaste a tu aseguradora?</legend>
+          <legend>¿Cuándo fue?</legend>
           <div class="chips">
-            <label class="chip"><input type="radio" name="seguro" value="si"><span>Sí</span></label>
-            <label class="chip"><input type="radio" name="seguro" value="no"><span>Todavía no</span></label>
+            <label class="chip"><input type="radio" name="cuando" value="hoy"><span>Hoy</span></label>
+            <label class="chip"><input type="radio" name="cuando" value="semana"><span>Esta semana</span></label>
+            <label class="chip"><input type="radio" name="cuando" value="mes"><span>Este mes</span></label>
+            <label class="chip"><input type="radio" name="cuando" value="antes"><span>Hace más de un mes</span></label>
           </div>
         </fieldset>
 
-        <p class="bubble-label">Así empieza tu mensaje:</p>
+        <p class="bubble-label">Así empieza tu mensaje: <button type="button" class="clear" id="limpiar">Borrar elecciones</button></p>
         <p class="bubble" id="burbuja" aria-live="polite">Hola Juan Pablo, tuve un accidente de tránsito. Quiero consultar por el reclamo.</p>
         <a class="btn btn-gold" id="enviar" href="https://wa.me/5492212011739?text=Hola%20Juan%20Pablo%2C%20tuve%20un%20accidente%20de%20tr%C3%A1nsito.%20Quiero%20consultar%20por%20el%20reclamo." rel="noopener">Escribime por WhatsApp</a>
         <p class="note">Se abre WhatsApp y lo revisás antes de enviarlo. También podés llamar al <a href="tel:+5492212011739">221 201-1739</a>.</p>
@@ -462,24 +465,34 @@ h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:2
 (function(){
   var f=document.getElementById('parte'); if(!f) return;
   var b=document.getElementById('burbuja'), a=document.getElementById('enviar'), fab=document.getElementById('fab');
-  var QUE={chocaron:'me chocaron.',moto:'tuve un accidente en moto o en bici.',atropello:'me atropellaron siendo peatón.',sinseguro:'tuve un accidente y el otro vehículo no tenía seguro.',otra:'tuve un accidente de tránsito.'};
+  var QUE={chocaron:'tuve un choque.',moto:'tuve un accidente en moto o en bici.',atropello:'me atropellaron siendo peatón.',sinseguro:'tuve un accidente y el otro vehículo no tenía seguro.',otra:'tuve un accidente de tránsito.'};
   var HER={si:'Hubo heridos.',no:'No hubo heridos.',nose:'No sé si hubo heridos.'};
-  var SEG={si:'Ya avisé a mi aseguradora.',no:'Todavía no avisé a mi aseguradora.'};
+  var CUA={hoy:'Fue hoy.',semana:'Fue esta semana.',mes:'Fue este mes.',antes:'Fue hace más de un mes.'};
   function val(n){var c=f.querySelector('input[name="'+n+'"]:checked');return c?c.value:'';}
   function armar(){
     var p=['Hola Juan Pablo,',QUE[val('que')]||'tuve un accidente de tránsito.'];
     var h=HER[val('heridos')]; if(h) p.push(h);
-    var s=SEG[val('seguro')]; if(s) p.push(s);
+    var c=CUA[val('cuando')]; if(c) p.push(c);
     p.push('Quiero consultar por el reclamo.');
     return p.join(' ');
   }
-  f.addEventListener('change',function(){
+  var last={};
+  function upd(){
     var m=armar();
     b.textContent=m;
     a.href='https://wa.me/5492212011739?text='+encodeURIComponent(m);
     if(fab) fab.href=a.href;
     b.classList.remove('flash'); void b.offsetWidth; b.classList.add('flash');
+  }
+  f.addEventListener('change',upd);
+  /* tocar de nuevo una opción ya elegida la desmarca */
+  f.addEventListener('click',function(e){
+    var t=e.target; if(!t||t.type!=='radio') return;
+    if(last[t.name]===t){t.checked=false;last[t.name]=null;upd();}
+    else last[t.name]=t;
   });
+  var lim=document.getElementById('limpiar');
+  if(lim) lim.addEventListener('click',function(){f.reset();last={};upd();});
 })();
 (function(){
   var fab=document.getElementById('fab'); if(!fab||!('IntersectionObserver' in window)) return;
