@@ -130,6 +130,11 @@ h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:2
 .scope{font:500 clamp(1.35rem,4.4vw,1.8rem)/1.3 var(--sans);color:var(--navy);margin:0;max-width:34ch}
 
 /* Qué hacer: checklist que se tilda */
+.intro+.progress{margin:-14px 0 22px;max-width:340px}
+.progress-text{margin:0 0 6px;font-size:1rem;color:var(--muted-dark)}
+.progress-text b{color:#fff;font:700 1.4rem/1 var(--head)}
+.progress-track{height:4px;background:rgba(238,240,244,.2)}
+.progress-fill{height:100%;width:0;background:var(--on-dark)}
 .steps{list-style:none;counter-reset:step;margin:0 0 26px;padding:0;display:grid;gap:12px}
 .steps li{counter-increment:step;display:grid}
 .step{position:relative;display:grid;grid-template-columns:2.6rem 1fr 30px;gap:4px 14px;align-items:start;border:1.5px solid rgba(238,240,244,.28);padding:16px;cursor:pointer;transition:background-color .2s,border-color .2s}
@@ -220,12 +225,15 @@ h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:2
 
 /* Un solo momento coordinado: la línea de calzada se traza y el texto y el armador entran */
 @media (prefers-reduced-motion:no-preference){
+  .progress-fill{transition:width .35s ease-out}
+  .step input:checked~.tick::after{animation:pop .22s ease-out}
     .hero-copy>*,.composer{animation:settle .8s ease-out both}
   .hero-copy>*:nth-child(2){animation-delay:.08s}
   .composer{animation-delay:.18s}
   .bubble.flash{animation:flash .5s ease-out}
 }
 @keyframes settle{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes pop{from{transform:rotate(45deg) scale(.3);opacity:0}to{transform:rotate(45deg) scale(1);opacity:1}}
 @keyframes flash{from{box-shadow:0 0 0 3px var(--gold)}to{box-shadow:0 0 0 0 transparent}}
 </style>
 </head>
@@ -330,6 +338,10 @@ h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:2
     <div class="wrap">
       <h2>Qué hacer después de un accidente</h2>
       <p class="intro">Cuatro pasos para ordenar las primeras horas. Tocá cada uno cuando lo hagas.</p>
+      <div class="progress" role="status" aria-live="polite">
+        <p class="progress-text"><b id="hechos">0</b> de 4 hechos</p>
+        <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="relleno"></div></div>
+      </div>
       <ol class="steps">
         <li>
           <label class="step">
@@ -493,6 +505,13 @@ h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:2
   });
   var lim=document.getElementById('limpiar');
   if(lim) lim.addEventListener('click',function(){f.reset();last={};upd();});
+})();
+(function(){
+  var cs=document.querySelectorAll('.step input'), n=document.getElementById('hechos'), r=document.getElementById('relleno');
+  if(!cs.length||!n) return;
+  function cuenta(){var k=0;cs.forEach(function(c){if(c.checked)k++;});n.textContent=k;r.style.width=(k*100/cs.length)+'%';}
+  cs.forEach(function(c){c.addEventListener('change',cuenta);});
+  cuenta();
 })();
 (function(){
   var fab=document.getElementById('fab'); if(!fab||!('IntersectionObserver' in window)) return;
