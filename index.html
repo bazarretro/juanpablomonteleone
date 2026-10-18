@@ -86,6 +86,9 @@ h1{font:600 clamp(2.5rem,10.5vw,4rem)/1.04 var(--head);color:#fff;margin:0 0 16p
 .hero-cta{display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin-top:22px}
 .hero-cta .btn{width:100%;max-width:340px}
 .hero-alt{color:var(--gold-soft);font-weight:500;text-underline-offset:4px;padding:11px 0;min-height:44px;display:inline-flex;align-items:center}
+.call{margin:4px 0 0;font-size:1rem;color:var(--muted-dark)}
+.call a{display:inline-block;padding:8px 0;color:var(--on-dark);text-decoration:none;border-bottom:1px solid var(--gold)}
+#inicio{scroll-margin-top:var(--hdr)}
 .urgent{margin:14px 0 0;font-size:1rem;color:var(--muted-dark)}
 
 /* Armador de mensaje (CTA) */
@@ -284,6 +287,7 @@ h2{font:600 clamp(2rem,6.5vw,3rem)/1.05 var(--head);margin:0 0 16px;max-width:20
           <a class="hero-alt" href="#parte">O contame antes tu caso</a>
         </div>
         <p class="urgent">Si hay heridos, llamá primero al 911.</p>
+        <p class="call">¿Preferís hablar? Llamá al <a href="tel:+5492212011739">221 201-1739</a></p>
       </div>
 
       <form class="composer" id="parte" aria-labelledby="parte-titulo" onsubmit="return false">
@@ -328,7 +332,6 @@ h2{font:600 clamp(2rem,6.5vw,3rem)/1.05 var(--head);margin:0 0 16px;max-width:20
         <p class="bubble-label">Así empieza tu mensaje: <button type="button" class="clear" id="limpiar">Borrar elecciones</button></p>
         <p class="bubble" id="burbuja" aria-live="polite">Hola Juan Pablo, tuve un accidente de tránsito. Quiero consultar por el reclamo.</p>
         <a class="btn btn-gold" id="enviar" href="https://wa.me/5492212011739?text=Hola%20Juan%20Pablo%2C%20tuve%20un%20accidente%20de%20tr%C3%A1nsito.%20Quiero%20consultar%20por%20el%20reclamo." rel="noopener">Consultá por WhatsApp</a>
-        <p class="note">Se abre WhatsApp y lo revisás antes de enviarlo. También podés llamar al <a href="tel:+5492212011739">221 201-1739</a>.</p>
       </form>
 
     </div>
