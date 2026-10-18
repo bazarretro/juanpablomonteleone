@@ -152,11 +152,11 @@ h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:1
 .about-head{grid-area:head}
 .who{grid-area:who;margin:0}
 .flow-wrap{grid-area:flow}
-.shot{position:relative;isolation:isolate;width:min(72%,300px);margin:0 0 34px 0}
-.shot::before{content:"";position:absolute;inset:0;transform:translate(14px,14px);border:2px solid var(--navy);z-index:-1}
+.shot{width:min(72%,300px);margin:0}
 .shot img{display:block;width:100%;height:auto}
-.who figcaption strong{display:block;font:700 1.7rem/1.05 var(--head);color:var(--navy)}
-.who figcaption span{display:block;font-size:.98rem;color:var(--soft-text);margin:2px 0 12px}
+.plate{width:min(72%,300px);background:var(--navy);padding:14px 16px 15px;margin:0 0 22px}
+.plate strong{display:block;font:700 1.7rem/1.05 var(--head);color:#fff}
+.plate span{display:block;font-size:.95rem;color:var(--gold-soft);margin-top:3px}
 .who p{margin:0;max-width:44ch}
 .flow{counter-reset:flow;list-style:none;margin:0;padding:0;display:grid;gap:24px}
 .flow li{counter-increment:flow;display:grid;grid-template-columns:2.8rem 1fr;gap:4px 14px;align-items:start}
@@ -200,7 +200,7 @@ h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:1
     .steps{grid-template-columns:1fr 1fr;gap:16px}
   .split{grid-template-columns:1fr 1fr;gap:48px}
   .about{grid-template-columns:.8fr 1.2fr;grid-template-areas:"who head" "who flow";column-gap:80px;row-gap:28px;align-items:start}
-  .shot{width:100%;max-width:340px}
+  .shot,.plate{width:100%;max-width:340px}
   .faq-wrap{grid-template-columns:1fr 1.5fr;gap:80px;align-items:start}
   .contact-grid{grid-template-columns:1.1fr .9fr;gap:80px;align-items:start}
 }
@@ -370,8 +370,7 @@ h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:1
       <figure class="who">
         <div class="shot"><img src="assets/foto-rect.webp" width="697" height="1024" alt="Juan Pablo Monteleone, abogado" loading="lazy" decoding="async"></div>
         <figcaption>
-          <strong>Juan Pablo Monteleone</strong>
-          <span>Abogado, Universidad Nacional de La Plata</span>
+          <div class="plate"><strong>Juan Pablo Monteleone</strong><span>Abogado, Universidad Nacional de La Plata</span></div>
           <p>Desde junio de 2024 ejerzo de forma independiente y me dedico a siniestros y reclamos de terceros.</p>
         </figcaption>
       </figure>
