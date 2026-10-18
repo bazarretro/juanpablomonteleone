@@ -29,6 +29,7 @@
 <style>
 :root{
   --band-y:68px;
+  --hdr:65px;
   --ink:#0C0F14;
   --navy:#243244;
   --gold:#B2845A;
@@ -43,7 +44,7 @@
   --sans:"Barlow",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:76px;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;background:var(--ink);color:var(--on-dark);font:400 1.0625rem/1.6 var(--sans);-webkit-font-smoothing:antialiased}
 img{max-width:100%}
@@ -113,7 +114,8 @@ h1{font:600 clamp(2.5rem,10.5vw,4rem)/1.04 var(--head);color:#fff;margin:0 0 16p
 .note a{text-decoration:none;border-bottom:1px solid var(--gold);color:var(--paper-text);font-weight:500}
 
 /* Bands */
-.band{padding:var(--band-y) 0}
+.band{padding:var(--band-y) 0;scroll-margin-top:calc(var(--hdr) - var(--band-y) + 28px)}
+#parte{scroll-margin-top:calc(var(--hdr) + 20px)}
 .band-paper{background:var(--paper);color:var(--paper-text)}
 .band-navy{background:var(--navy)}
 .band-ink{background:var(--ink)}
@@ -161,6 +163,7 @@ h2{font:600 clamp(2rem,6.5vw,3rem)/1.05 var(--head);margin:0 0 16px;max-width:20
 .plate strong{display:block;font:700 1.7rem/1.05 var(--head);color:#fff}
 .plate span{display:block;font-size:1rem;color:var(--muted-dark);margin-top:3px}
 .who p{margin:0;max-width:44ch}
+.who p.say{margin:16px 0 0}
 .flow{counter-reset:flow;list-style:none;margin:0;padding:0;display:grid;gap:24px}
 .flow li{counter-increment:flow;display:grid;grid-template-columns:2.8rem 1fr;gap:4px 14px;align-items:start}
 .flow li::before{content:counter(flow);font:700 2.9rem/.9 var(--head);color:var(--navy)}
@@ -181,7 +184,7 @@ h2{font:600 clamp(2rem,6.5vw,3rem)/1.05 var(--head);margin:0 0 16px;max-width:20
 .faq p{margin:12px 0 0;color:var(--soft-text);max-width:56ch}
 
 /* Contacto */
-#contacto{padding:56px 0}
+#contacto{padding:56px 0;scroll-margin-top:calc(var(--hdr) - 56px + 28px)}
 #contacto h2{margin-bottom:22px;max-width:none}
 .contact-row{display:flex;flex-direction:column;align-items:flex-start;gap:22px}
 .links{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
