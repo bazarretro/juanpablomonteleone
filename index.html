@@ -11,7 +11,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 130'%3E%3Crect width='100' height='130' fill='%230C0F14'/%3E%3Cpath d='M26 28H74V92L50 118 26 92Z' fill='%23243244' stroke='%23B2845A' stroke-width='3'/%3E%3Crect x='30' y='6' width='40' height='5' fill='%23B2845A'/%3E%3Crect x='30' y='14' width='40' height='5' fill='%23B2845A'/%3E%3Cpath d='M35 88V52L40 42 45 52V88ZM55 88V52L60 42 65 52V88Z' fill='%23B2845A'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&family=Newsreader:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -41,7 +41,6 @@
   --muted-dark:#BAC2CD;
   --head:"Barlow Condensed","Arial Narrow","Roboto Condensed",sans-serif;
   --sans:"Barlow",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --voice:"Newsreader",Georgia,"Times New Roman",serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:76px;-webkit-text-size-adjust:100%}
@@ -78,18 +77,15 @@ a{color:inherit}
 
 /* Hero */
 .hero{padding:34px 0 0;background:radial-gradient(110% 60% at 88% 0%,rgba(34,51,69,.9) 0%,rgba(12,15,20,0) 62%),var(--ink)}
-.hero-grid{display:grid;gap:30px;padding-bottom:52px;grid-template-areas:"copy" "composer" "extra"}
+.hero-grid{display:grid;gap:30px;padding-bottom:52px;grid-template-areas:"copy" "composer"}
 .hero-copy{grid-area:copy}
-.hero-extra{grid-area:extra}
-h1{font:700 clamp(3.1rem,14vw,6.3rem)/.93 var(--head);color:#fff;margin:0 0 18px;max-width:12ch;text-wrap:balance}
-.lead{font-size:1.15rem;color:var(--muted-dark);max-width:40ch;margin:0}
-.say{font:italic 400 clamp(1.4rem,5vw,1.75rem)/1.3 var(--voice);color:var(--on-dark);border-left:2px solid rgba(238,240,244,.45);padding:2px 0 2px 16px;margin:0 0 26px;max-width:26ch}
-.facts{list-style:none;margin:0;padding:0;display:grid;gap:10px;color:var(--muted-dark);font-size:1rem}
-.facts li{padding-left:14px;border-left:1.5px solid rgba(238,240,244,.35)}
+h1{font:600 clamp(2.5rem,10.5vw,4rem)/1.04 var(--head);color:#fff;margin:0 0 16px;max-width:17ch;text-wrap:balance}
+.lead{font-size:1.1rem;color:var(--muted-dark);max-width:42ch;margin:0}
+.say{margin:16px 0 0;font:500 1.2rem/1.4 var(--sans);color:var(--navy);max-width:30ch}
 .hero-cta{display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin-top:22px}
 .hero-cta .btn{width:100%;max-width:340px}
 .hero-alt{color:var(--gold-soft);font-weight:500;text-underline-offset:4px;padding:11px 0;min-height:44px;display:inline-flex;align-items:center}
-.urgent{margin:14px 0 0;font-size:1rem;color:var(--muted-dark);border-left:2px solid rgba(238,240,244,.35);padding-left:10px}
+.urgent{margin:14px 0 0;font-size:1rem;color:var(--muted-dark)}
 
 /* Armador de mensaje (CTA) */
 .composer{grid-area:composer;background:var(--card);color:var(--paper-text);border-top:5px solid var(--gold);padding:20px 18px 20px}
@@ -121,7 +117,7 @@ h1{font:700 clamp(3.1rem,14vw,6.3rem)/.93 var(--head);color:#fff;margin:0 0 18px
 .band-paper{background:var(--paper);color:var(--paper-text)}
 .band-navy{background:var(--navy)}
 .band-ink{background:var(--ink)}
-h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:20ch;text-wrap:balance}
+h2{font:600 clamp(2rem,6.5vw,3rem)/1.05 var(--head);margin:0 0 16px;max-width:20ch;text-wrap:balance}
 .band-card{background:var(--card);color:var(--paper-text)}
 .band-paper h2,.band-card h2{color:var(--navy)}
 .intro{max-width:52ch;margin:0 0 36px}
@@ -208,7 +204,7 @@ h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:2
   .foot{padding-bottom:40px}
   .nav{display:flex;gap:26px}
   .hero{padding:36px 0 0}
-  .hero-grid{grid-template-columns:1.05fr .95fr;grid-template-areas:"copy composer" "extra composer";column-gap:64px;row-gap:34px;grid-template-rows:auto 1fr;align-items:start;padding-bottom:72px}
+  .hero-grid{grid-template-columns:1.05fr .95fr;grid-template-areas:"copy composer";column-gap:64px;align-items:start;padding-bottom:72px}
   .composer{padding:20px 24px 20px}
     .steps{grid-template-columns:1fr 1fr;gap:16px}
   .split{grid-template-columns:1fr 1fr;gap:48px}
@@ -324,12 +320,6 @@ h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:2
         <p class="note">Se abre WhatsApp y lo revisás antes de enviarlo. También podés llamar al <a href="tel:+5492212011739">221 201-1739</a>.</p>
       </form>
 
-      <div class="hero-extra">
-        <p class="say">Un buen asesoramiento empieza por escuchar con atención.</p>
-        <ul class="facts">
-          <li>Más de 7 años de práctica en estudios jurídicos de La Plata</li>
-        </ul>
-      </div>
     </div>
   </section>
 
@@ -391,7 +381,8 @@ h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:2
         <div class="shot"><img src="assets/foto-rect.webp" width="697" height="1024" alt="Juan Pablo Monteleone, abogado" loading="lazy" decoding="async"></div>
         <figcaption>
           <div class="plate"><strong>Juan Pablo Monteleone</strong><span>Abogado, Universidad Nacional de La Plata</span></div>
-          <p>Desde junio de 2024 ejerzo de forma independiente y me dedico a siniestros y reclamos de terceros.</p>
+          <p>Más de 7 años de práctica en estudios jurídicos de La Plata. Desde junio de 2024 ejerzo de forma independiente y me dedico a siniestros y reclamos de terceros.</p>
+          <p class="say">“Un buen asesoramiento empieza por escuchar con atención.”</p>
         </figcaption>
       </figure>
       <div class="flow-wrap">
