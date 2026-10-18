@@ -8,7 +8,7 @@
 <title>Juan Pablo Monteleone | Abogado en La Plata, accidentes de tránsito</title>
 <meta name="description" content="Abogado en La Plata dedicado a accidentes de tránsito, siniestros y reclamos de terceros. Contame qué pasó y te explico tus opciones. Atención online.">
 <meta name="theme-color" content="#0C0F14">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 130'%3E%3Crect width='100' height='130' fill='%230C0F14'/%3E%3Cpath d='M26 28H74V92L50 118 26 92Z' fill='%23223345' stroke='%23C2902D' stroke-width='3'/%3E%3Crect x='30' y='6' width='40' height='5' fill='%23C2902D'/%3E%3Crect x='30' y='14' width='40' height='5' fill='%23C2902D'/%3E%3Cpath d='M35 88V52L40 42 45 52V88ZM55 88V52L60 42 65 52V88Z' fill='%23C2902D'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 130'%3E%3Crect width='100' height='130' fill='%230C0F14'/%3E%3Cpath d='M26 28H74V92L50 118 26 92Z' fill='%23243244' stroke='%23B2845A' stroke-width='3'/%3E%3Crect x='30' y='6' width='40' height='5' fill='%23B2845A'/%3E%3Crect x='30' y='14' width='40' height='5' fill='%23B2845A'/%3E%3Cpath d='M35 88V52L40 42 45 52V88ZM55 88V52L60 42 65 52V88Z' fill='%23B2845A'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&family=Newsreader:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
@@ -30,9 +30,9 @@
 :root{
   --band-y:68px;
   --ink:#0C0F14;
-  --navy:#223345;
-  --gold:#C2902D;
-  --gold-soft:#DDB566;
+  --navy:#243244;
+  --gold:#B2845A;
+  --gold-soft:#DDB38C;
   --paper:#E6E8EC;
   --card:#F3F4F6;
   --paper-text:#1D2733;
@@ -55,15 +55,15 @@ a{color:inherit}
 .wrap{width:min(1120px,100% - 32px);margin-inline:auto}
 
 /* Header */
-.top{position:sticky;top:0;z-index:50;background:rgba(12,15,20,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(194,144,45,.28)}
+.top{position:sticky;top:0;z-index:50;background:rgba(12,15,20,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(238,240,244,.14)}
 .top-in{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-height:44px}
 .brand svg{width:24px;height:31px;flex:none}
 .brand-name{display:block;font:700 1.5rem/1 var(--head);letter-spacing:.1em;text-transform:uppercase;color:#fff}
-.brand-sub{display:block;font:500 .78rem/1.2 var(--sans);letter-spacing:.08em;color:var(--gold-soft);margin-top:3px}
+.brand-sub{display:block;font:500 .78rem/1.2 var(--sans);letter-spacing:.08em;color:var(--muted-dark);margin-top:3px}
 .nav{display:none}
 .nav a{text-decoration:none;color:var(--muted-dark);font-size:.95rem;font-weight:500;padding:8px 2px;border-bottom:1px solid transparent}
-.nav a:hover{color:#fff;border-bottom-color:var(--gold)}
+.nav a:hover{color:#fff;border-bottom-color:#fff}
 .pill{display:inline-block;white-space:nowrap;background:var(--gold);color:var(--ink);font-weight:600;font-size:.95rem;text-decoration:none;padding:10px 16px;border-radius:2px}
 .pill:hover{background:var(--gold-soft)}
 .pill-long{display:none}
@@ -73,7 +73,7 @@ a{color:inherit}
 .btn-gold{background:var(--gold);color:var(--ink)}
 .btn-gold:hover{background:var(--gold-soft);border-color:var(--gold-soft)}
 .btn-line{background:transparent;color:var(--on-dark)}
-.btn-line:hover{background:rgba(194,144,45,.16)}
+.btn-line:hover{background:rgba(178,132,90,.16)}
 .btn-row{display:flex;flex-wrap:wrap;gap:12px}
 
 /* Hero */
@@ -83,13 +83,13 @@ a{color:inherit}
 .hero-extra{grid-area:extra}
 h1{font:700 clamp(3.1rem,14vw,6.3rem)/.93 var(--head);color:#fff;margin:0 0 18px;max-width:12ch;text-wrap:balance}
 .lead{font-size:1.15rem;color:var(--muted-dark);max-width:40ch;margin:0}
-.say{font:italic 400 clamp(1.4rem,5vw,1.75rem)/1.3 var(--voice);color:var(--gold-soft);border-left:2px solid var(--gold);padding:2px 0 2px 16px;margin:0 0 26px;max-width:26ch}
+.say{font:italic 400 clamp(1.4rem,5vw,1.75rem)/1.3 var(--voice);color:var(--on-dark);border-left:2px solid rgba(238,240,244,.45);padding:2px 0 2px 16px;margin:0 0 26px;max-width:26ch}
 .facts{list-style:none;margin:0;padding:0;display:grid;gap:10px;color:var(--muted-dark);font-size:1rem}
-.facts li{padding-left:14px;border-left:1.5px solid rgba(194,144,45,.55)}
+.facts li{padding-left:14px;border-left:1.5px solid rgba(238,240,244,.35)}
 .hero-cta{display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin-top:22px}
 .hero-cta .btn{width:100%;max-width:340px}
 .hero-alt{color:var(--gold-soft);font-weight:500;text-underline-offset:4px;padding:11px 0;min-height:44px;display:inline-flex;align-items:center}
-.urgent{margin:14px 0 0;font-size:.95rem;color:var(--muted-dark);border-left:2px solid var(--gold);padding-left:10px}
+.urgent{margin:14px 0 0;font-size:.95rem;color:var(--muted-dark);border-left:2px solid rgba(238,240,244,.35);padding-left:10px}
 
 /* Armador de mensaje (CTA) */
 .composer{grid-area:composer;background:var(--card);color:var(--paper-text);border-top:5px solid var(--gold);padding:20px 18px 20px}
@@ -121,7 +121,8 @@ h1{font:700 clamp(3.1rem,14vw,6.3rem)/.93 var(--head);color:#fff;margin:0 0 18px
 .band-navy{background:var(--navy)}
 .band-ink{background:var(--ink)}
 h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:14ch;text-wrap:balance}
-.band-paper h2{color:var(--navy)}
+.band-card{background:var(--card);color:var(--paper-text)}
+.band-paper h2,.band-card h2{color:var(--navy)}
 .intro{max-width:52ch;margin:0 0 36px}
 
 /* Cómo te ayudo */
@@ -131,18 +132,18 @@ h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:1
 .steps{list-style:none;counter-reset:step;margin:0 0 26px;padding:0;display:grid;gap:12px}
 .steps li{counter-increment:step;display:grid}
 .step{position:relative;display:grid;grid-template-columns:2.6rem 1fr 30px;gap:4px 14px;align-items:start;border:1.5px solid rgba(238,240,244,.28);padding:16px;cursor:pointer;transition:background-color .2s,border-color .2s}
-.step::before{content:counter(step);font:700 2.7rem/.9 var(--head);color:var(--gold-soft)}
+.step::before{content:counter(step);font:700 2.7rem/.9 var(--head);color:#fff}
 .step input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
 .step-title{display:block;font:600 1.55rem/1.1 var(--head);color:#fff;margin-bottom:6px}
 .step-text{display:block;color:var(--muted-dark);max-width:42ch}
-.tick{width:28px;height:28px;border:2px solid var(--gold-soft);position:relative;margin-top:2px}
+.tick{width:28px;height:28px;border:2px solid var(--on-dark);position:relative;margin-top:2px}
 .step input:checked~.tick{background:var(--gold);border-color:var(--gold)}
 .step input:checked~.tick::after{content:"";position:absolute;left:8px;top:2px;width:7px;height:14px;border:solid var(--ink);border-width:0 3px 3px 0;transform:rotate(45deg)}
-.step:has(input:checked){border-color:var(--gold);background:rgba(194,144,45,.12)}
+.step:has(input:checked){border-color:var(--gold);background:rgba(178,132,90,.12)}
 .step input:focus-visible~.tick{outline:2px solid var(--gold-soft);outline-offset:3px}
 .tip{font-size:.95rem;color:var(--muted-dark);margin:0 0 36px}
 .split{display:grid;gap:24px;margin:0 0 36px}
-.split>div{border-top:1px solid rgba(194,144,45,.5);padding-top:16px}
+.split>div{border-top:1px solid rgba(238,240,244,.3);padding-top:16px}
 .split h3{font:700 1.7rem/1.05 var(--head);color:#fff;margin:0 0 6px}
 .split p{margin:0;color:var(--muted-dark);max-width:44ch}
 .fine{font-size:.9rem;color:var(--muted-dark);max-width:60ch;margin:30px 0 0}
@@ -156,30 +157,31 @@ h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:1
 .shot img{display:block;width:100%;height:auto}
 .plate{width:min(72%,300px);background:var(--navy);padding:14px 16px 15px;margin:0 0 22px}
 .plate strong{display:block;font:700 1.7rem/1.05 var(--head);color:#fff}
-.plate span{display:block;font-size:.95rem;color:var(--gold-soft);margin-top:3px}
+.plate span{display:block;font-size:.95rem;color:var(--muted-dark);margin-top:3px}
 .who p{margin:0;max-width:44ch}
 .flow{counter-reset:flow;list-style:none;margin:0;padding:0;display:grid;gap:24px}
 .flow li{counter-increment:flow;display:grid;grid-template-columns:2.8rem 1fr;gap:4px 14px;align-items:start}
 .flow li::before{content:counter(flow);font:700 2.9rem/.9 var(--head);color:var(--navy)}
 .flow h3{font:700 1.6rem/1.1 var(--head);color:var(--navy);margin:0 0 4px}
-.flow p{margin:0;color:var(--soft-text);max-width:40ch}
+.flow p{margin:3px 0 0;color:var(--soft-text);max-width:42ch}
+.flow b{font-weight:600;color:var(--navy)}
 
 /* Dudas */
 .faq-wrap{display:grid;gap:30px}
-.faq details{border-top:1px solid rgba(194,144,45,.5);padding:0}
+.faq details{border-top:1px solid rgba(36,50,68,.28);padding:0}
 .faq summary{padding:18px 0;min-height:56px}
 .faq details>*:not(summary){padding-bottom:18px}
-.faq details:last-of-type{border-bottom:1px solid rgba(194,144,45,.5)}
-.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;font:600 1.6rem/1.1 var(--head);color:#fff}
+.faq details:last-of-type{border-bottom:1px solid rgba(36,50,68,.28)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;font:600 1.6rem/1.1 var(--head);color:var(--navy)}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font:500 1.8rem/1 var(--sans);color:var(--gold-soft);flex:none}
+.faq summary::after{content:"+";font:500 1.8rem/1 var(--sans);color:var(--navy);flex:none}
 .faq details[open] summary::after{content:"\2212"}
-.faq p{margin:12px 0 0;color:var(--muted-dark);max-width:56ch}
+.faq p{margin:12px 0 0;color:var(--soft-text);max-width:56ch}
 
 /* Contacto */
 .contact-grid{display:grid;gap:36px}
 .data{margin:0;display:grid;gap:18px}
-.data div{border-top:1px solid rgba(194,144,45,.45);padding-top:12px}
+.data div{border-top:1px solid rgba(238,240,244,.25);padding-top:12px}
 .data dt{font-size:.9rem;color:var(--muted-dark);margin-bottom:2px}
 .data a{display:inline-block;padding:10px 0;min-height:44px;box-sizing:border-box}
 .data dd{margin:0;font-size:1.15rem;overflow-wrap:anywhere}
@@ -187,12 +189,17 @@ h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:1
 .data a:hover{color:var(--gold-soft)}
 
 /* Footer */
-.foot{background:var(--ink);border-top:1px solid rgba(194,144,45,.28);padding:30px 0 40px;color:var(--muted-dark);font-size:.92rem}
+.foot{background:var(--ink);border-top:1px solid rgba(238,240,244,.14);padding:30px 0 40px;color:var(--muted-dark);font-size:.92rem}
 .foot p{margin:0 0 6px;max-width:70ch}
+.fab{position:fixed;right:16px;bottom:16px;z-index:40;display:inline-flex;align-items:center;min-height:52px;padding:12px 20px;background:var(--gold);color:var(--ink);font:600 1rem/1.2 var(--sans);text-decoration:none;border-radius:2px;box-shadow:0 6px 18px rgba(0,0,0,.4);opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .2s,transform .2s,visibility .2s}
+.fab.on{opacity:1;visibility:visible;transform:none}
+.foot{padding-bottom:96px}
 
 @media (min-width:860px){
   :root{--band-y:100px}
   .hero-cta{display:none}
+  .fab{display:none}
+  .foot{padding-bottom:40px}
   .nav{display:flex;gap:26px}
   .hero{padding:36px 0 0}
   .hero-grid{grid-template-columns:1.05fr .95fr;grid-template-areas:"copy composer" "extra composer";column-gap:64px;row-gap:34px;grid-template-rows:auto 1fr;align-items:start;padding-bottom:72px}
@@ -226,11 +233,11 @@ h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:1
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="marca" viewBox="0 0 100 130">
-    <rect x="30" y="4" width="40" height="5" fill="#C2902D"/>
-    <rect x="30" y="12" width="40" height="5" fill="#C2902D"/>
-    <rect x="20" y="20" width="60" height="8" rx="4" fill="#223345" stroke="#C2902D" stroke-width="2"/>
-    <path d="M26 32H74V92L50 120 26 92Z" fill="#223345" stroke="#C2902D" stroke-width="3"/>
-    <path d="M35 88V54L40 44 45 54V88ZM55 88V54L60 44 65 54V88Z" fill="#C2902D"/>
+    <rect x="30" y="4" width="40" height="5" fill="#B2845A"/>
+    <rect x="30" y="12" width="40" height="5" fill="#B2845A"/>
+    <rect x="20" y="20" width="60" height="8" rx="4" fill="#243244" stroke="#B2845A" stroke-width="2"/>
+    <path d="M26 32H74V92L50 120 26 92Z" fill="#243244" stroke="#B2845A" stroke-width="3"/>
+    <path d="M35 88V54L40 44 45 54V88ZM55 88V54L60 44 65 54V88Z" fill="#B2845A"/>
   </symbol>
 </svg>
 
@@ -310,7 +317,6 @@ h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:1
         <p class="say">Un buen asesoramiento empieza por escuchar con atención.</p>
         <ul class="facts">
           <li>Más de 7 años de práctica en estudios jurídicos de La Plata</li>
-          <li>Reclamos extrajudiciales por siniestros y daños a terceros</li>
         </ul>
       </div>
     </div>
@@ -357,12 +363,11 @@ h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:1
           <p>Sacá fotos de los daños, pedí presupuestos de reparación y guardá todo lo que gastes por el accidente: grúa, traslados, alquiler de un vehículo.</p>
         </div>
       </div>
-      <a class="btn btn-gold" href="https://wa.me/5492212011739?text=Hola%20Juan%20Pablo%2C%20tuve%20un%20accidente%20de%20tr%C3%A1nsito.%20Quiero%20consultar%20por%20el%20reclamo." rel="noopener">Escribime por WhatsApp</a>
       <p class="fine">Esta información es general. Cada caso es distinto y los plazos para reclamar son limitados: consultá cuanto antes.</p>
     </div>
   </section>
 
-  <section class="band band-paper" id="como-trabajo">
+  <section class="band band-card" id="como-trabajo">
     <div class="wrap about">
       <div class="about-head">
         <h2>Cómo trabajamos juntos</h2>
@@ -380,19 +385,22 @@ h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:1
           <li>
             <div>
               <h3>Me contás qué pasó</h3>
-              <p>Cuando puedas y con lo que tengas a mano.</p>
+              <p><b>Vos:</b> me escribís cuando puedas y con lo que tengas a mano.</p>
+              <p><b>Yo:</b> leo tu caso y te respondo.</p>
             </div>
           </li>
           <li>
             <div>
               <h3>Revisamos tu documentación y tus opciones</h3>
-              <p>Te explico qué podés reclamar y cuáles son los pasos a seguir.</p>
+              <p><b>Vos:</b> me pasás lo que juntaste.</p>
+              <p><b>Yo:</b> te explico qué podés reclamar y cuáles son los pasos a seguir.</p>
             </div>
           </li>
           <li>
             <div>
               <h3>Gestiono el reclamo ante la aseguradora</h3>
-              <p>Para que no tengas que lidiar solo con el trámite.</p>
+              <p><b>Vos:</b> me pasás lo que haga falta.</p>
+              <p><b>Yo:</b> me ocupo del trámite ante la aseguradora, para que no lidies solo.</p>
             </div>
           </li>
         </ol>
@@ -400,7 +408,7 @@ h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:1
     </div>
   </section>
 
-  <section class="band band-navy" id="preguntas">
+  <section class="band band-paper" id="preguntas">
     <div class="wrap faq-wrap">
       <h2>Dudas antes de escribir</h2>
       <div class="faq">
@@ -440,6 +448,7 @@ h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:1
     </div>
   </section>
 </main>
+<a class="fab" id="fab" href="https://wa.me/5492212011739?text=Hola%20Juan%20Pablo%2C%20tuve%20un%20accidente%20de%20tr%C3%A1nsito.%20Quiero%20consultar%20por%20el%20reclamo." rel="noopener">Escribime por WhatsApp</a>
 
 <footer class="foot">
   <div class="wrap">
@@ -452,7 +461,7 @@ h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:1
 <script>
 (function(){
   var f=document.getElementById('parte'); if(!f) return;
-  var b=document.getElementById('burbuja'), a=document.getElementById('enviar');
+  var b=document.getElementById('burbuja'), a=document.getElementById('enviar'), fab=document.getElementById('fab');
   var QUE={chocaron:'me chocaron.',moto:'tuve un accidente en moto o en bici.',atropello:'me atropellaron siendo peatón.',sinseguro:'tuve un accidente y el otro vehículo no tenía seguro.',otra:'tuve un accidente de tránsito.'};
   var HER={si:'Hubo heridos.',no:'No hubo heridos.',nose:'No sé si hubo heridos.'};
   var SEG={si:'Ya avisé a mi aseguradora.',no:'Todavía no avisé a mi aseguradora.'};
@@ -468,8 +477,19 @@ h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:1
     var m=armar();
     b.textContent=m;
     a.href='https://wa.me/5492212011739?text='+encodeURIComponent(m);
+    if(fab) fab.href=a.href;
     b.classList.remove('flash'); void b.offsetWidth; b.classList.add('flash');
   });
+})();
+(function(){
+  var fab=document.getElementById('fab'); if(!fab||!('IntersectionObserver' in window)) return;
+  var vis={}, els=document.querySelectorAll('.hero-cta,#parte,#contacto');
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){vis[e.target.id||e.target.className]=e.isIntersecting;});
+    var any=Object.keys(vis).some(function(k){return vis[k];});
+    fab.classList.toggle('on',!any);
+  });
+  els.forEach(function(e){io.observe(e);});
 })();
 </script>
 </body>
