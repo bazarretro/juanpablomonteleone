@@ -110,7 +110,7 @@ h1{font:600 clamp(2.5rem,10.5vw,4rem)/1.04 var(--head);color:#fff;margin:0 0 16p
 .chip input:focus-visible+span{outline:2px solid var(--navy);outline-offset:2px}
 .chip:hover input:not(:checked)+span{border-color:var(--navy)}
 .bubble-label{margin:6px 0 6px;font-size:1rem;color:var(--soft-text)}
-.clear{font:inherit;color:var(--navy);background:none;border:0;border-bottom:1px solid var(--navy);padding:10px 0 1px;margin-left:8px;cursor:pointer;min-height:44px}
+.clear{font:inherit;color:var(--navy);background:none;border:0;border-bottom:1px solid var(--navy);padding:10px 0 1px;cursor:pointer;min-height:44px}
 .bubble{margin:0 0 14px;background:var(--navy);color:#fff;padding:12px 14px;border-radius:10px 10px 2px 10px;font-size:1rem;line-height:1.45}
 .composer .btn{width:100%;min-height:58px;font-size:1.15rem;font-weight:700}
 .note{margin:12px 0 0;font-size:1rem;color:var(--soft-text)}
@@ -197,15 +197,10 @@ h2{font:600 clamp(2rem,6.5vw,3rem)/1.05 var(--head);margin:0 0 16px;max-width:20
 /* Footer */
 .foot{background:var(--ink);border-top:1px solid rgba(238,240,244,.14);padding:30px 0 40px;color:var(--muted-dark);font-size:1rem}
 .foot p{margin:0 0 6px;max-width:70ch}
-.fab{position:fixed;right:16px;bottom:16px;z-index:40;display:inline-flex;align-items:center;min-height:52px;padding:12px 20px;background:var(--gold);color:var(--ink);font:600 1rem/1.2 var(--sans);text-decoration:none;border-radius:2px;box-shadow:0 6px 18px rgba(0,0,0,.4);opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .2s,transform .2s,visibility .2s}
-.fab.on{opacity:1;visibility:visible;transform:none}
-.foot{padding-bottom:96px}
 
 @media (min-width:860px){
   :root{--band-y:100px}
   .hero-cta{display:none}
-  .fab{display:none}
-  .foot{padding-bottom:40px}
   .nav{display:flex;gap:26px}
   .hero{padding:28px 0 0}
   .hero-grid{grid-template-columns:1.05fr .95fr;grid-template-areas:"copy composer";column-gap:64px;align-items:center;padding-bottom:56px}
@@ -221,7 +216,6 @@ h2{font:600 clamp(2rem,6.5vw,3rem)/1.05 var(--head);margin:0 0 16px;max-width:20
   .composer .btn{min-height:52px}
   .note{margin-top:8px}
     .steps{grid-template-columns:1fr 1fr;gap:16px}
-  .split{grid-template-columns:1fr 1fr;gap:48px}
   .about{grid-template-columns:.8fr 1.2fr;grid-template-areas:"who head" "who flow";column-gap:80px;row-gap:28px;grid-template-rows:auto 1fr;align-items:start}
   .shot,.plate{width:100%;max-width:340px}
   .faq-wrap{grid-template-columns:1fr 1.5fr;gap:80px;align-items:start}
@@ -238,12 +232,8 @@ h2{font:600 clamp(2rem,6.5vw,3rem)/1.05 var(--head);margin:0 0 16px;max-width:20
 @media (prefers-reduced-motion:no-preference){
   .progress-fill{transition:width .35s ease-out}
   .step input:checked~.tick::after{animation:pop .22s ease-out}
-    .hero-copy>*,.composer{animation:settle .8s ease-out both}
-  .hero-copy>*:nth-child(2){animation-delay:.08s}
-  .composer{animation-delay:.18s}
   .bubble.flash{animation:flash .5s ease-out}
 }
-@keyframes settle{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 @keyframes pop{from{transform:rotate(45deg) scale(.3);opacity:0}to{transform:rotate(45deg) scale(1);opacity:1}}
 @keyframes flash{from{box-shadow:0 0 0 3px var(--gold)}to{box-shadow:0 0 0 0 transparent}}
 </style>
@@ -329,7 +319,7 @@ h2{font:600 clamp(2rem,6.5vw,3rem)/1.05 var(--head);margin:0 0 16px;max-width:20
           </div>
         </fieldset>
 
-        <p class="bubble-label">Así empieza tu mensaje: <button type="button" class="clear" id="limpiar">Borrar elecciones</button></p>
+        <p class="bubble-label" id="limpiar-wrap" hidden><button type="button" class="clear" id="limpiar">Borrar elecciones</button></p>
         <p class="bubble" id="burbuja" aria-live="polite">Hola Juan Pablo, tuve un accidente de tránsito. Quiero consultar por el reclamo.</p>
         <a class="btn btn-gold" id="enviar" href="https://wa.me/5492212011739?text=Hola%20Juan%20Pablo%2C%20tuve%20un%20accidente%20de%20tr%C3%A1nsito.%20Quiero%20consultar%20por%20el%20reclamo." rel="noopener">Consultá por WhatsApp</a>
       </form>
@@ -374,15 +364,10 @@ h2{font:600 clamp(2rem,6.5vw,3rem)/1.05 var(--head);margin:0 0 16px;max-width:20
       </ol>
       <div class="split">
         <div>
-          <h3>Si hubo lesiones</h3>
-          <p>Llamá al 911 si hay heridos y pedí atención médica aunque las lesiones parezcan leves. Guardá certificados, estudios y comprobantes de gastos.</p>
-        </div>
-        <div>
           <h3>Si solo hubo daños materiales</h3>
           <p>Sacá fotos de los daños, pedí presupuestos de reparación y guardá todo lo que gastes por el accidente: grúa, traslados, alquiler de un vehículo.</p>
         </div>
       </div>
-      <p class="fine">Esta información es general. Cada caso es distinto y los plazos para reclamar son limitados: consultá cuanto antes.</p>
     </div>
   </section>
 
@@ -463,20 +448,19 @@ h2{font:600 clamp(2rem,6.5vw,3rem)/1.05 var(--head);margin:0 0 16px;max-width:20
     </div>
   </section>
 </main>
-<a class="fab" id="fab" href="https://wa.me/5492212011739?text=Hola%20Juan%20Pablo%2C%20tuve%20un%20accidente%20de%20tr%C3%A1nsito.%20Quiero%20consultar%20por%20el%20reclamo." rel="noopener">Consultá por WhatsApp</a>
 
 <footer class="foot">
   <div class="wrap">
     <p>Juan Pablo Monteleone, abogado. La Plata, Buenos Aires, Argentina.</p>
     <!-- Agregar acá la matrícula profesional (colegio, tomo y folio) cuando la confirme. -->
-    <p>La información de este sitio es general y no reemplaza el asesoramiento profesional sobre tu caso.</p>
+    <p>La información de este sitio es general y no reemplaza el asesoramiento profesional sobre tu caso. Los plazos para reclamar son limitados: consultá cuanto antes.</p>
   </div>
 </footer>
 
 <script>
 (function(){
   var f=document.getElementById('parte'); if(!f) return;
-  var b=document.getElementById('burbuja'), a=document.getElementById('enviar'), fab=document.getElementById('fab');
+  var b=document.getElementById('burbuja'), a=document.getElementById('enviar');
   var QUE={chocaron:'tuve un choque.',moto:'tuve un accidente en moto o en bici.',atropello:'me atropellaron siendo peatón.',sinseguro:'tuve un accidente y el otro vehículo no tenía seguro.',otra:'tuve un accidente de tránsito.'};
   var HER={si:'Hubo heridos.',no:'No hubo heridos.',nose:'No sé si hubo heridos.'};
   var CUA={hoy:'Fue hoy.',semana:'Fue esta semana.',mes:'Fue este mes.',antes:'Fue hace más de un mes.'};
@@ -491,9 +475,9 @@ h2{font:600 clamp(2rem,6.5vw,3rem)/1.05 var(--head);margin:0 0 16px;max-width:20
   var last={};
   function upd(){
     var m=armar();
+    var w=document.getElementById('limpiar-wrap'); if(w) w.hidden=!f.querySelector('input:checked');
     b.textContent=m;
     a.href='https://wa.me/5492212011739?text='+encodeURIComponent(m);
-    if(fab) fab.href=a.href;
     b.classList.remove('flash'); void b.offsetWidth; b.classList.add('flash');
   }
   f.addEventListener('change',upd);
@@ -512,16 +496,6 @@ h2{font:600 clamp(2rem,6.5vw,3rem)/1.05 var(--head);margin:0 0 16px;max-width:20
   function cuenta(){var k=0;cs.forEach(function(c){if(c.checked)k++;});n.textContent=k;r.style.width=(k*100/cs.length)+'%';}
   cs.forEach(function(c){c.addEventListener('change',cuenta);});
   cuenta();
-})();
-(function(){
-  var fab=document.getElementById('fab'); if(!fab||!('IntersectionObserver' in window)) return;
-  var vis={}, els=document.querySelectorAll('.hero-cta,#parte,#contacto');
-  var io=new IntersectionObserver(function(es){
-    es.forEach(function(e){vis[e.target.id||e.target.className]=e.isIntersecting;});
-    var any=Object.keys(vis).some(function(k){return vis[k];});
-    fab.classList.toggle('on',!any);
-  });
-  els.forEach(function(e){io.observe(e);});
 })();
 </script>
 </body>
