@@ -90,8 +90,6 @@ h1{font:700 clamp(3.1rem,14vw,6.3rem)/.93 var(--head);color:#fff;margin:0 0 18px
 .hero-cta .btn{width:100%;max-width:340px}
 .hero-alt{color:var(--gold-soft);font-weight:500;text-underline-offset:4px;padding:11px 0;min-height:44px;display:inline-flex;align-items:center}
 .urgent{margin:14px 0 0;font-size:.95rem;color:var(--muted-dark);border-left:2px solid var(--gold);padding-left:10px}
-.lane{height:8px;background:repeating-linear-gradient(90deg,var(--gold) 0 44px,transparent 44px 78px)}
-.lane-ink{background-color:var(--ink)}
 
 /* Armador de mensaje (CTA) */
 .composer{grid-area:composer;background:var(--card);color:var(--paper-text);border-top:5px solid var(--gold);padding:20px 18px 20px}
@@ -214,13 +212,11 @@ h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:1
 
 /* Un solo momento coordinado: la línea de calzada se traza y el texto y el armador entran */
 @media (prefers-reduced-motion:no-preference){
-  .lane{animation:trace 1.2s cubic-bezier(.3,.7,.2,1) .15s both}
-  .hero-copy>*,.composer{animation:settle .8s ease-out both}
+    .hero-copy>*,.composer{animation:settle .8s ease-out both}
   .hero-copy>*:nth-child(2){animation-delay:.08s}
   .composer{animation-delay:.18s}
   .bubble.flash{animation:flash .5s ease-out}
 }
-@keyframes trace{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
 @keyframes settle{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 @keyframes flash{from{box-shadow:0 0 0 3px var(--gold)}to{box-shadow:0 0 0 0 transparent}}
 </style>
@@ -318,7 +314,6 @@ h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:1
         </ul>
       </div>
     </div>
-    <div class="lane" aria-hidden="true"></div>
   </section>
 
 
@@ -427,7 +422,6 @@ h2{font:700 clamp(2.4rem,8vw,3.9rem)/.98 var(--head);margin:0 0 16px;max-width:1
     </div>
   </section>
 
-  <div class="lane lane-ink" aria-hidden="true"></div>
   <section class="band band-ink" id="contacto">
     <div class="wrap contact-grid">
       <div>
