@@ -13,6 +13,7 @@
 | Plazo habitual de un desalojo en La Plata (referencia, sin prometer) | Alquileres, "Cómo es un juicio de desalojo" |
 | Cómo se pactan los honorarios en un accidente | Siniestros, preguntas |
 | Cómo presupuesta un cobro | Cobro de deudas, preguntas |
+| En cuánto responde un WhatsApp y en qué horario (solo lo que pueda cumplir siempre) | Home (debajo del botón principal) y armador de cada página de tema |
 
 ## Para que Juan Pablo confirme (comentarios `VERIFICAR CON JUANO` en el HTML)
 
