@@ -200,10 +200,9 @@ ul, ol { margin: 0; padding: 0; }
 .retrato-marco img {
   width: 100%; height: 100%; object-fit: cover; object-position: center 14%;
   border-radius: 50%;
-  filter: grayscale(1) sepia(.28) contrast(1.06) brightness(.97);
-  transition: filter 1.2s var(--ease), transform 1.2s var(--ease);
+  transition: transform 1.2s var(--ease);
 }
-.retrato:hover .retrato-marco img { filter: grayscale(.15) sepia(.1) contrast(1.03); transform: scale(1.025); }
+.retrato:hover .retrato-marco img { transform: scale(1.025); }
 @keyframes revelar { from { clip-path: circle(0% at 50% 50%); opacity: 0; } to { clip-path: circle(75% at 50% 50%); opacity: 1; } }
 .retrato-pie {
   margin-top: 1.4rem; text-align: center; font-family: var(--f-cita); font-style: italic; color: var(--bronce-claro); font-size: 1.12rem;
@@ -280,9 +279,9 @@ h3 { font-family: var(--f-display); font-weight: 600; font-size: 1.32rem; line-h
 
 /* Quién soy */
 .quien-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: clamp(2rem, 6vw, 4.5rem); align-items: start; }
-.quien-foto { position: relative; max-width: 360px; }
-.quien-foto img { border-radius: var(--radio); filter: grayscale(1) sepia(.25) contrast(1.05); transition: filter 1.2s var(--ease); aspect-ratio: 4 / 5; object-fit: cover; object-position: center 15%; width: 100%; }
-.quien-foto:hover img { filter: grayscale(.1) sepia(.08); }
+.quien-foto { position: relative; max-width: 360px; overflow: visible; }
+.quien-foto img { border-radius: var(--radio); transition: transform 1.2s var(--ease); aspect-ratio: 4 / 5; object-fit: cover; object-position: center 15%; width: 100%; }
+.quien-foto:hover img { transform: scale(1.02); }
 .quien-foto::after { content: ""; position: absolute; inset: 14px -14px -14px 14px; border: 1px solid var(--bronce); border-radius: var(--radio); z-index: -1; }
 .quien-foto { isolation: isolate; }
 .quien-texto p + p { margin-top: 1rem; }
@@ -375,7 +374,7 @@ h3 { font-family: var(--f-display); font-weight: 600; font-size: 1.32rem; line-h
 .enlaces-oficiales { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.4rem; }
 
 .quien-corto { display: grid; grid-template-columns: 120px 1fr; gap: 1.6rem; align-items: center; max-width: 52rem; }
-.quien-corto img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; object-position: center 15%; border: 1px solid var(--bronce); padding: 4px; filter: grayscale(1) sepia(.25); }
+.quien-corto img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; object-position: center 15%; border: 1px solid var(--bronce); padding: 4px; }
 .quien-corto p { color: var(--claro-2); }
 .quien-corto p + p { margin-top: .6rem; }
 .quien-corto a { color: var(--bronce-claro); }
