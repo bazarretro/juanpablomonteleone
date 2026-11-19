@@ -313,8 +313,10 @@ h3 { font-family: var(--f-display); font-weight: 600; font-size: 1.32rem; line-h
 .pie { border-top: 1px solid var(--linea-osc); padding-block: 2.6rem 2rem; color: var(--claro-2); font-size: .98rem; }
 .pie-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 2rem; }
 .pie h4 { font-family: var(--f-display); font-weight: 600; color: var(--claro); font-size: .95rem; letter-spacing: .16em; margin: 0 0 .8rem; }
-.pie ul { list-style: none; display: grid; gap: .35rem; }
+.pie ul { list-style: none; display: grid; gap: 0; }
 .pie a { text-decoration: none; transition: color .3s; }
+.pie ul a { display: inline-block; padding-block: .45rem; }
+.nota-centro a { display: inline-block; padding-block: .3rem; }
 .pie a:hover { color: var(--bronce-claro); }
 .pie .matricula { margin-top: 1rem; }
 .pie-iconos { display: flex; gap: .6rem; }
