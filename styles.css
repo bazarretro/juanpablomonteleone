@@ -421,3 +421,37 @@ h3 { font-family: var(--f-display); font-weight: 600; font-size: 1.32rem; line-h
   .js .rv { opacity: 1; transform: none; }
   .meandro { animation: none; }
 }
+
+/* Botón fijo de WhatsApp (solo celular y tablet; en escritorio está en la cabecera) */
+.wa-fijo { display: none; }
+@media (max-width: 960px) {
+  .wa-fijo {
+    position: fixed; z-index: 55; left: 14px; right: 14px; bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+    display: flex; align-items: center; justify-content: center; gap: .6rem; min-height: 54px;
+    background: linear-gradient(180deg, var(--bronce-claro), var(--bronce)); color: var(--noche);
+    font-weight: 700; font-size: 1.1rem; text-decoration: none; border-radius: var(--radio);
+    box-shadow: 0 10px 30px -8px rgba(0, 0, 0, .65);
+    transform: translateY(160%); opacity: 0; visibility: hidden;
+    transition: transform .4s var(--ease), opacity .3s, visibility .4s;
+  }
+  .wa-fijo.visible { transform: none; opacity: 1; visibility: visible; }
+  .wa-fijo .wa-ico { width: 1.35em; height: 1.35em; flex: none; }
+  .pie { padding-bottom: 6.2rem; }
+}
+
+/* Selector de situación (accidentes) */
+.situacion { max-width: 40rem; margin: 2rem auto 0; text-align: left; }
+.situacion h3 { font: 600 1.05rem/1.3 var(--f-display); letter-spacing: .04em; text-align: center; color: var(--claro); }
+.situacion h3 span { font-family: var(--f-texto); font-weight: 400; letter-spacing: 0; color: var(--claro-2); }
+.situacion fieldset { border: 0; margin: 1.1rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; }
+.situacion legend { width: 100%; float: left; text-align: center; margin-bottom: .5rem; font-size: 1rem; color: var(--bronce-claro); }
+.situacion fieldset > * { float: none; }
+.chip { position: relative; display: inline-flex; }
+.chip input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.chip span { display: inline-flex; align-items: center; min-height: 44px; padding: .5rem 1rem; border: 1px solid var(--linea-osc); border-radius: var(--radio); font-size: 1.02rem; color: var(--claro); transition: background .25s, color .25s, border-color .25s; }
+.chip:hover span { border-color: var(--bronce); }
+.chip input:checked + span { background: var(--bronce-claro); color: var(--noche); border-color: transparent; font-weight: 700; }
+.chip input:focus-visible + span { outline: 2px solid var(--bronce-claro); outline-offset: 3px; }
+.cta-final .sit-msg { margin: 1.4rem auto 0; padding: .9rem 1.1rem; background: var(--noche-3); border-left: 3px solid var(--bronce); border-radius: var(--radio); color: var(--claro); font-size: 1.05rem; text-align: left; max-width: 34em; }
+.sit-borrar { display: block; margin: .8rem auto 0; background: none; border: 0; color: var(--claro-2); text-decoration: underline; font: inherit; font-size: .95rem; cursor: pointer; min-height: 44px; padding: 0 .8rem; }
+.sit-borrar:hover { color: var(--bronce-claro); }

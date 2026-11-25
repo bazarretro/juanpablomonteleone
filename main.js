@@ -56,4 +56,54 @@
     cajas.forEach(function (c) { c.addEventListener('change', actualizar); });
     actualizar();
   });
+
+  // Botón fijo de WhatsApp: aparece al pasar el primer bloque y se oculta ante el cierre
+  var fijo = document.querySelector('[data-wa-fijo]');
+  if (fijo && 'IntersectionObserver' in window) {
+    var visibles = 0, vigilados = document.querySelectorAll('.hero-acciones, .cta-final');
+    var ioFijo = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) { visibles += e.isIntersecting ? 1 : -1; });
+      visibles = Math.max(0, visibles);
+      fijo.classList.toggle('visible', visibles === 0 && window.scrollY > 200);
+    });
+    vigilados.forEach(function (el) { ioFijo.observe(el); });
+    window.addEventListener('scroll', function () {
+      fijo.classList.toggle('visible', visibles === 0 && window.scrollY > 200);
+    }, { passive: true });
+  }
+
+  // Selector de situación (accidentes): arma el mensaje de WhatsApp
+  var sit = document.getElementById('situacion');
+  if (sit) {
+    var QUE = { choque: 'tuve un choque.', moto: 'iba en moto o bici y tuve un accidente.', atropello: 'me atropellaron.', sinseguro: 'tuve un choque y el otro no tenía seguro.', otra: 'tuve un accidente de tránsito.' };
+    var HER = { si: 'Hubo heridos.', no: 'No hubo heridos.', nose: 'Todavía no sé si hay lesiones.' };
+    var CUA = { hoy: 'Fue hoy.', semana: 'Fue esta semana.', mes: 'Fue este mes.', mas: 'Fue hace más de un mes.' };
+    var enlaces = document.querySelectorAll('[data-wa-acc]');
+    var base = 'Hola Juan Pablo, tuve un accidente de tránsito. Quiero consultar por el reclamo.';
+    var msg = document.getElementById('sit-msg'), borrar = document.getElementById('sit-borrar');
+    var previo = {};
+    var armar = function () {
+      var v = function (n) { var c = sit.querySelector('input[name="' + n + '"]:checked'); return c ? c.value : null; };
+      var q = v('que'), h = v('her'), c = v('cua');
+      var texto = base;
+      if (q || h || c) {
+        texto = 'Hola Juan Pablo, ' + (q ? QUE[q] : 'tuve un accidente de tránsito.') + (h ? ' ' + HER[h] : '') + (c ? ' ' + CUA[c] : '') + ' Quiero consultar por el reclamo.';
+      }
+      var url = 'https://wa.me/5492212011739?text=' + encodeURIComponent(texto);
+      enlaces.forEach(function (a) { a.href = url; });
+      msg.hidden = borrar.hidden = !(q || h || c);
+      msg.textContent = 'Tu mensaje: ' + texto;
+    };
+    sit.addEventListener('click', function (e) {
+      var i = e.target;
+      if (!i || i.type !== 'radio') return;
+      if (previo[i.name] === i.value) { i.checked = false; previo[i.name] = null; }
+      else { previo[i.name] = i.value; }
+      armar();
+    });
+    borrar.addEventListener('click', function () {
+      sit.querySelectorAll('input:checked').forEach(function (i) { i.checked = false; });
+      previo = {}; armar();
+    });
+  }
 })();
